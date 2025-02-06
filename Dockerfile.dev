@@ -32,4 +32,6 @@ LABEL MAINTAINER=belastingdienst
 WORKDIR /
 COPY --from=builder /workspace/manager ./
 
+RUN mkdir bin/ && ln -s ln -sf manager bin/manager_${TARGETARCH}
+
 ENTRYPOINT ["/manager"]
